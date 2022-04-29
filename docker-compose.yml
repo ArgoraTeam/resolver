@@ -1,14 +1,13 @@
 version: "2"
 services:
   resolver:
+    container_name: r.metaweave.xyz
     image: node:17
     restart: always
     user: "node"
     working_dir: /home/node/app
-    environment:
-      - NODE_ENV=production
     volumes:
       - ./:/home/node/app
     ports:
-      - 8081:3000
-    command: "npm start"
+      - 3110:3000
+    command: sh -c "npm install && npm start"
