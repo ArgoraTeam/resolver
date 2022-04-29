@@ -32,7 +32,7 @@ Currently the code is a simple proof of concept, `domain.ltd/<txid>` generates O
 
 - Routing:
   - `domain.ltd/t/<txid>` -> redirect to a Weeve: `arweave.net->metaweave/thread/<txid>`
-  - `domain.ltd/u/<txid>` -> redirect to an user profile: `arweave.net->metaweave/profile/<txid>`
+  - `domain.ltd/u/<wallet address>` -> redirect to an user profile: `arweave.net->metaweave/profile/<wallet address>`
 
 - Features:
   - Weeve: `<meta property="og:image" content="picture url" />` links to a default picture of [Metaweave logo](https://clqdnswlpdrdmjykpevfim6d6zwjpmh6wb5g5fxocsvtrn4ajqra.arweave.net/EuA2yst44jYnCnkqVDPD9myXsP6wem6W7hSrOLeATCI) when there is no picture to show from a Weeve.
