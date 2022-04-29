@@ -5,6 +5,7 @@ Resolve Argora protocol metadata, generate Open Graph Protocol (OGP) html tags a
 # Getting started
 
 ```
+$ cp .env-example .env
 $ npm install
 $ npm start
 ```
