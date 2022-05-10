@@ -1,4 +1,5 @@
 type T_txid = string;
+type T_address = string;
 type T_jwk = string;
 type T_community = string;
 
@@ -11,4 +12,4 @@ type T_weeve = null | {
   community: T_community | undefined
 }
 
-export {T_txid, T_weeve};
+export {T_txid, T_weeve, T_address};

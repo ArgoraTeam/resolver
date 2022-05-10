@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import getTxid from "./getTxid";
-import getHtml from "./getHtml";
+import * as getHtml from "./getHtml";
 import { T_weeve } from "./types";
 
 const path = require('path');
@@ -23,9 +23,15 @@ app.get("/", async (req: Request, res: Response): Promise<Response> => {
   return res.status(200).send("main page");
 });
 
-app.get("/[a-zA-Z0-9\-_]{43}", async (req: Request, res: Response): Promise<Response> => {
-  const data: T_weeve = await getTxid(req.path.substring(1));
-  const html = getHtml(data);
+app.get("/u/[a-zA-Z0-9\-_]{43}", async (req: Request, res: Response): Promise<Response> => {
+  const address = req.path.substring(3);
+  const html = getHtml.forProfile(address);
+  return res.status(200).send(html);
+});
+
+app.get("/t/[a-zA-Z0-9\-_]{43}", async (req: Request, res: Response): Promise<Response> => {
+  const data: T_weeve = await getTxid(req.path.substring(3));
+  const html = getHtml.forWeeve(data);
   return res.status(200).send(html);
 });
 
