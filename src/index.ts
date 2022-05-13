@@ -7,17 +7,9 @@ const path = require('path');
 const app: Application = express();
 const port = 3000;
 
-// app.set("view engine", "pug");
-// app.set("views", path.join(__dirname, "views"));
-
-// app.get("/@.*",  async (req: Request, res: Response): Promise<void> => {
-//   res.render("index", { title: 'Hey', message: 'Hello there!'});
-// });
-
 // Body parsing Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 app.get("/", async (req: Request, res: Response): Promise<Response> => {
   return res.status(200).send("main page");
