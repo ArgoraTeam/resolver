@@ -25,7 +25,7 @@ app.get("/", async (req: Request, res: Response): Promise<Response> => {
 
 app.get("/u/[a-zA-Z0-9\-_]{43}", async (req: Request, res: Response): Promise<Response> => {
   const address = req.path.substring(3);
-  const html = getHtml.forProfile(address);
+  const html = await getHtml.forProfile(address);
   return res.status(200).send(html);
 });
 
