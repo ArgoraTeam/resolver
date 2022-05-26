@@ -1,0 +1,100 @@
+body{
+  background-color: white;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* animation: blink 0.2s steps(3, start) infinite;
+  animation-delay: 1.8s; */
+}
+
+#logo {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 1s ease-out;
+}
+
+img {
+  /* border: 1px solid blue; */
+  width: 20vw;
+  height: 20vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  animation: imgShrink 0.7s ease-in-out forwards;
+  animation-delay: 1s;
+}
+#text {
+  /* border: 1px solid green; */
+  font-size: 9vw;
+  animation: textShrink 0.7s ease-out forwards;
+  animation-delay: 1s;
+}
+
+#subdomain {
+  /* border: 1px solid red; */
+  font-size: 7vw;
+  text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+  float: right;
+  animation: typing 0.7s ease-out forwards;
+  animation-delay: 1s;
+  width: 0%;
+  direction: rtl;
+  color: rgb(238, 22, 173);
+}
+
+@keyframes textShrink {
+  from {}
+  to { font-size: 7vw; }
+}
+
+@keyframes imgShrink {
+  from {
+    width: 20vw;
+    height: 20vw;
+  }
+  to { 
+    width: 1vw;
+    height: 1vw;
+    margin: 1vw;
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 25% }
+}
+
+@keyframes fadein {
+  from {
+    margin-top: -30vh;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: white;
+  }
+  img {
+    content: url('metaweave-dark.svg');
+  }
+}
