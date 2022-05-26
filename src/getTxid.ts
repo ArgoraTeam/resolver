@@ -22,7 +22,7 @@ const getTxid = async (txid: T_txid): Promise<T_weeve> => {
         id: tx.id,
         text: _data.text,
         picture: _data.pictures ? _data.pictures[0] : null,
-        jwk: tx.owner.address,
+        address: tx.owner.address,
         time: tx.block?.timestamp,
         community: community
       };

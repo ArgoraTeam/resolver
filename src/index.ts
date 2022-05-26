@@ -3,7 +3,6 @@ import getTxid from "./getTxid";
 import * as getHtml from "./getHtml";
 import { T_weeve } from "./types";
 
-const path = require('path');
 const app: Application = express();
 const port = 3000;
 

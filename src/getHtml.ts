@@ -31,7 +31,7 @@ export async function forWeeve (weeve: T_weeve) {
   
     if (!pictureTxid) {
       // Assign the users arweave-account image if there's no image in the weeve
-      const accountInfo = await account.get(weeve.jwk);
+      const accountInfo = await account.get(weeve.address);
       const profile = accountInfo?.profile;
       if (profile)
         pictureTxid = profile.avatar;
@@ -52,7 +52,7 @@ export async function forWeeve (weeve: T_weeve) {
         <meta property="og:url"   content="https://${process.env.GATEWAY}/${weeve.id}" />
         <meta property="og:site_name"   content="Metaweave.xyz" />
         <meta property="og:type"        content="article" />
-        <meta property="article:author" content="${weeve.jwk}" />
+        <meta property="article:author" content="${weeve.address}" />
         <link rel="stylesheet" href="/styles.css">
       </head>
       <body>
@@ -67,7 +67,7 @@ export async function forWeeve (weeve: T_weeve) {
         </div>
         <script>
           setTimeout(() => {
-            window.location.href = "https://${process.env.GATEWAY}/${process.env.ARGORA_TXID}/thread/${weeve.id}";
+            window.location.href = "https://${process.env.GATEWAY}/${process.env.METAWEAVE_TXID}/thread/${weeve.id}";
           }, 2000);
         </script>
       </body>
@@ -117,7 +117,7 @@ export async function forProfile (basePath:string, address: T_address) {
         </div>
       <script>
         setTimeout(() => {
-          window.location.href = "https://${process.env.GATEWAY}/${process.env.ARGORA_TXID}/profile/${address}";
+          window.location.href = "https://${process.env.GATEWAY}/${process.env.METAWEAVE_TXID}/profile/${address}";
         }, 2000);
       </script>
       </body>

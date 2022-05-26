@@ -2,12 +2,11 @@ version: "2"
 services:
   resolver:
     container_name: r.metaweave.xyz
-    image: node:17
+    image: metaweave-resolver
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: always
-    user: "node"
     working_dir: /home/node/app
-    volumes:
-      - ./:/home/node/app
     ports:
       - 3110:3000
-    command: sh -c "npm install && npm start"
