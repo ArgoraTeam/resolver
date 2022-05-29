@@ -66,7 +66,7 @@ export async function forWeeve (weeve: T_weeve) {
       <body>
         <div id="logo">
         <div id="subdomain">
-          account
+          resolver
         </div>
         <img src="/metaweave-gradient-dark.svg" alt="metaweave logo">
         <div id="text">
@@ -116,7 +116,7 @@ export async function forProfile (basePath:string, address: T_address) {
       <body>
         <div id="logo">
         <div id="subdomain">
-          account
+          resolver
         </div>
         <img src="/metaweave-gradient-dark.svg" alt="metaweave logo">
         <div id="text">
