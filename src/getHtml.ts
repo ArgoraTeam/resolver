@@ -12,7 +12,7 @@ export async function generateWalletImage(address: T_address) {
   <svg width="100%" height="100%" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
       <rect x="-1" y="0" width="801" height="800"/>
       <g transform="matrix(1,0,0,1,-121,346)">
-          <text x="214.782px" y="308.684px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:144px;fill:white;">${shortAddress}</text>
+          <text x="160px" y="308.684px" textLength="90%" style="font-family:Monospace, sans-serif;font-size:140px;fill:white;">${shortAddress}</text>
       </g>
       <g transform="matrix(1.72148,0,0,1.72148,67.2047,-60.604)">
           <path d="M58,90L202,164L204,189L231,199L251,187L260,176L280,172L305,184L337,192L302,209L287,225L266,264L225,286L198,290L192,307L135,316L87,301L62,273L51,246L129,252L141,243L133,242L133,233L99,222L68,182L53,141L58,90ZM63,100L195,168L198,194L232,206L256,192L263,182L279,178L298,188L321,194L302,201L284,218L262,258L223,279L177,288L188,292L188,300L132,308L94,296L66,265L64,255L129,260L146,250L187.925,244.062L191,243L142,236L142,229L104,215L75,179L61,142L63,100ZM269,192L273,187L277,191L275,194L271,194L269,192ZM221,185L217,186L213,183L261,119L349,84L299,170L296,171L291,169L334,97L265,124L221,185Z" style="fill:url(#_Linear1);stroke:url(#_Linear2);stroke-width:1.16px;"/>
