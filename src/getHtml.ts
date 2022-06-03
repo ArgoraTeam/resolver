@@ -1,6 +1,6 @@
 require("dotenv").config();
 const sharp = require('sharp');
-import { T_weeve, T_address } from "./types";
+import { T_weeve, T_address, T_txid } from "./types";
 import Account from 'arweave-account'
 
 const account = new Account();
@@ -32,7 +32,10 @@ export async function generateWalletImage(address: T_address) {
 }
 
 
-export async function forWeeve (weeve: T_weeve) {
+export async function forWeeve (txid: T_txid, weeve: T_weeve) {
+  // Assign the default metaweave logo if theres no profile or weeve image
+  let pictureTxid = "EuA2yst44jYnCnkqVDPD9myXsP6wem6W7hSrOLeATCI";
+
   if(weeve) {
 
     let pictureTxid = weeve.picture;
@@ -44,27 +47,24 @@ export async function forWeeve (weeve: T_weeve) {
       if (profile)
         pictureTxid = profile.avatar;
     }
+  }
 
-    // Assign the default metaweave logo if theres no profile or weeve image
-    if (!pictureTxid)
-      pictureTxid = "EuA2yst44jYnCnkqVDPD9myXsP6wem6W7hSrOLeATCI";
-
-    return`
-    <!DOCTYPE html>
-    <html lang="en">
-      <head prefix="https://ogp.me/ns/article">
-        <meta charset="utf-8">
-        <title>${weeve.id}</title>
-        <meta property="og:title" content="${weeve.text}" />
-        <meta property="og:image" content="https://${process.env.GATEWAY}/${pictureTxid}" />
-        <meta property="og:url"   content="https://${process.env.GATEWAY}/${weeve.id}" />
-        <meta property="og:site_name"   content="Metaweave.xyz" />
-        <meta property="og:type"        content="article" />
-        <meta property="article:author" content="${weeve.address}" />
-        <link rel="stylesheet" href="/styles.css">
-      </head>
-      <body>
-        <div id="logo">
+  return`
+  <!DOCTYPE html>
+  <html lang="en">
+    <head prefix="https://ogp.me/ns/article">
+      <meta charset="utf-8">
+      <title>${txid}</title>
+      <meta property="og:title" content="${weeve && weeve.text}" />
+      <meta property="og:image" content="https://${process.env.GATEWAY}/${pictureTxid}" />
+      <meta property="og:url"   content="https://${process.env.GATEWAY}/${txid}" />
+      <meta property="og:site_name"   content="Metaweave.xyz" />
+      <meta property="og:type"        content="article" />
+      <meta property="article:author" content="${weeve && weeve.address}" />
+      <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+      <div id="logo">
         <div id="subdomain">
           resolver
         </div>
@@ -72,17 +72,14 @@ export async function forWeeve (weeve: T_weeve) {
         <div id="text">
           metaweave.xyz
         </div>
-        </div>
-        <script>
-          setTimeout(() => {
-            window.location.href = "https://${process.env.GATEWAY}/${process.env.METAWEAVE_TXID}/thread/${weeve.id}";
-          }, 2000);
-        </script>
-      </body>
-    </html>`
-  } else {
-    return `corrupted weeve`;
-  }
+      </div>
+      <script>
+        setTimeout(() => {
+          window.location.href = "https://${process.env.GATEWAY}/${process.env.METAWEAVE_TXID}/thread/${txid}";
+        }, 2000);
+      </script>
+    </body>
+  </html>`
 };
 
 export async function forProfile (basePath:string, address: T_address) {

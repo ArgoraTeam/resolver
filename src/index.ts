@@ -26,7 +26,7 @@ app.get("/u/[a-zA-Z0-9\-_]{43}", async (req: Request, res: Response): Promise<Re
 // Get thread 
 app.get("/t/[a-zA-Z0-9\-_]{43}", async (req: Request, res: Response): Promise<Response> => {
   const data: T_weeve = await getTxid(req.path.substring(3));
-  const html = await getHtml.forWeeve(data);
+  const html = await getHtml.forWeeve(req.path.substring(3), data);
   return res.status(200).send(html);
 });
 

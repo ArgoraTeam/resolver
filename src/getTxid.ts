@@ -10,16 +10,16 @@ const getTxid = async (txid: T_txid): Promise<T_weeve> => {
       .findOne();
 
     // get the tx data from the optimistic cache
-    const response = await arweave.api.get(`${tx.id}`)
+    const response = await arweave.api.get(`${txid}`)
     const data = response.data;
 
     // retrieve the community the weeve was posted in
     let community = 'tags' in tx ? tx.tags.find(tag => tag.name === 'community')?.value : undefined;
 
-    if(tx.owner?.address && tx.id && typeof data === "object"){
+    if(tx.owner?.address && txid && typeof data === "object"){
       let _data = data._data;
       weeveData = {
-        id: tx.id,
+        id: txid,
         text: _data.text,
         picture: _data.pictures ? _data.pictures[0] : null,
         address: tx.owner.address,
