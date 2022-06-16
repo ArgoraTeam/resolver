@@ -34,7 +34,7 @@ export async function generateWalletImage(address: T_address) {
 
 export async function forWeeve (txid: T_txid, weeve: T_weeve) {
   // Assign the default metaweave logo if theres no profile or weeve image
-  let pictureTxid = "amicxlBKMk8UF5J29tgPuibRH3xEVioZIyFdv7D3U6E";
+  let pictureTxid = "0LZSh6YianwJAztgyDf_1cp5jor93yqw0LKqoXYFAS0";
 
   if(weeve) {
 
