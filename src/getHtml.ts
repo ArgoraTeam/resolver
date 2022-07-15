@@ -85,29 +85,20 @@ export async function forWeeve (txid: T_txid, weeve: T_weeve) {
 export async function forProfile (basePath:string, address: T_address) {
   
   if (address) {
-    const accountInfo = await account.get(address);
-    const profile = accountInfo?.profile;
-
-    let url = `https://${process.env.GATEWAY}/${profile?.avatar}`;
-    let handle = profile?.handle;
-
-    if (!profile) {
-      url = `${basePath}/img/${address}`;
-      handle = address;
-    } 
+    const user = await account.get(address);
   
     return `
     <!DOCTYPE html>
     <html lang="en">
       <head prefix="https://ogp.me/ns/article">
         <meta charset="utf-8">
-        <title>${handle}</title>
-        <meta property="og:title" content="${handle}" />
-        <meta property="og:image" content="${url}" />
-        <meta property="og:url"   content="${url}" />
+        <title>${user.handle}</title>
+        <meta property="og:title" content="${user.handle}" />
+        <meta property="og:image" content="${user.profile.avatarURL}" />
+        <meta property="og:url"   content="${user.profile.avatarURL}" />
         <meta property="og:site_name"   content="Metaweave.xyz" />
         <meta property="og:type"        content="profile" />
-        <meta property="article:author" content="${address}" />
+        <meta property="article:author" content="${user.handle}" />
         <link rel="stylesheet" href="/styles.css">
       </head>
       <body>
