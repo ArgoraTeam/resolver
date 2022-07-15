@@ -76,7 +76,7 @@ export async function forWeeve (txid: T_txid, weeve: T_weeve) {
       <script>
         setTimeout(() => {
           window.location.href = "https://${process.env.GATEWAY}/${process.env.METAWEAVE_TXID}/thread/${txid}";
-        }, 2000);
+        }, 0);
       </script>
     </body>
   </html>`
