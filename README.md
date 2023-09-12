@@ -10,7 +10,7 @@ $ npm install
 $ npm start
 ```
 
-Open your browser and go on http://localhost:3000/_XsCToKBa971rQIY-_VcSVqIptn0vamfxfp9WQ8Po_Q
+Open your browser and go on http://localhost:3000/t/_XsCToKBa971rQIY-_VcSVqIptn0vamfxfp9WQ8Po_Q
 
 If you are redirected to a Weeve with the following image, then it works :)
 
@@ -18,7 +18,7 @@ If you are redirected to a Weeve with the following image, then it works :)
 
 # Purpose
 
-The released version of the above link is the following: http://r.metaweave.xyz/_XsCToKBa971rQIY-_VcSVqIptn0vamfxfp9WQ8Po_Q
+The released version of the above link is the following: http://r.metaweave.xyz/t/_XsCToKBa971rQIY-_VcSVqIptn0vamfxfp9WQ8Po_Q
 
 The resolver request data according to a txid or a wallet address and generate an html response with OGP tags. This way, we are able to use native web 2 capabilities to show a preview of the Weeve and User profile when it is shared on these platforms.
 
